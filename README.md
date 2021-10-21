@@ -2,7 +2,9 @@
 
 A simple React app that shows a QR code for joining a Spotify Group Session. The idea here is to have this app running fullscreen on a Raspberry Pi connected to a monitor. Then, use [patchbay](https://patchbay.pub/docs/index.html) to update the url being encoded in the QR.
 
-Realistically, the only thing that makes this specific to Spotify is the design of the app. You could easily use this project to show any QR code you like using [patchbay](https://patchbay.pub/docs/index.html).
+<img src="./public/spotify-spin.gif" style="height: 200px" />
+
+Realistically, the only thing that makes this specific to Spotify is the design of the app. You could easily use this project to show any QR code you like, and utilize [patchbay](https://patchbay.pub/docs/index.html) to update it.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
