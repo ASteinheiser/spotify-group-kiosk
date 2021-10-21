@@ -14,9 +14,10 @@ Before you get started, make sure you have a `.env`:
 PATCHBAY_PUBSUB_KEY=<some_random_string>
 ```
 
-Then, you can install the dependencies:
+Then, you can install the dependencies and source `.env`:
 ```
 yarn
+source .env
 ```
 
 # Usage
