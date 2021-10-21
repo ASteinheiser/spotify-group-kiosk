@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Spotify Group Kiosk",
+  "name": "Spotify Group Session Kiosk",
   "icons": [
     {
       "src": "favicon.ico",
