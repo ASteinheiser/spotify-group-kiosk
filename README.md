@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Setup
 Before you get started, make sure you have a `.env`:
 ```
-PATCHBAY_PUBSUB_KEY=<some_random_string>
+REACT_APP_PATCHBAY_PUBSUB_KEY=<some_random_string>
 ```
 
 Then, you can install the dependencies and source `.env`:
@@ -28,5 +28,5 @@ yarn start
 
 Send a message to the kiosk:
 ```
-curl "https://patchbay.pub/pubsub/<PATCHBAY_PUBSUB_KEY>" -d '{"title":"Spotify Group Session","body":"Scan the code to join!","url":"www.spotify.com/groups/some-id"}'
+curl "https://patchbay.pub/pubsub/<REACT_APP_PATCHBAY_PUBSUB_KEY>" -d '{"title":"Spotify Group Session","body":"Scan the code to join!","url":"www.spotify.com/groups/some-id"}'
 ```
