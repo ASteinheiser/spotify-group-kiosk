@@ -9,10 +9,16 @@ const { REACT_APP_PATCHBAY_PUBSUB_KEY } = process.env;
 const PATCHBAY_URL = `https://patchbay.pub/pubsub/${REACT_APP_PATCHBAY_PUBSUB_KEY}`;
 
 const Router = () => {
-  if (window.location.pathname === '/admin') {
+  const { pathname } = window.location;
+
+  if (pathname === '/') {
+    return <Kiosk apiUrl={`${PATCHBAY_URL}?persist=true`} />;
+  }
+  if (pathname === '/admin') {
     return <Controller apiUrl={PATCHBAY_URL} />;
   }
-  return <Kiosk apiUrl={`${PATCHBAY_URL}?persist=true`} />;
+  // redirect to base url if no match
+  window.location.href = '/';
 }
 
 ReactDOM.render(
