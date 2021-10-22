@@ -1,7 +1,7 @@
 html,
 body,
 #root,
-.wrapper {
+#wrapper {
   height: 100%;
 }
 
@@ -26,14 +26,26 @@ code {
 h1,
 h2 {
   color: #1dd35f;
-  padding: 0 240px;
+  max-width: 1000px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+h1 {
+  font-size: 48px;
+  -webkit-line-clamp: 1;
 }
 
 h2 {
-  padding-bottom: 16px;
+  font-size: 32px;
+  margin-bottom: 60px;
+  -webkit-line-clamp: 2;
 }
 
-.wrapper {
+#wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,5 +58,5 @@ img {
 }
 
 #qr-code {
-  padding-bottom: 44px;
+  padding-bottom: 32px;
 }

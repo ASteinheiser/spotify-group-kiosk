@@ -9,12 +9,12 @@ const App = () => {
   const { data, error } = usePatchbay(PATCHBAY_URL);
 
   return (
-    <div className='wrapper'>
+    <div id='wrapper'>
+      <img alt='spotify-spin' src='/spotify-spin.gif' />
+
       {error && <h1>{error.message}</h1>}
 
       {data?.title && (<h1>{data.title}</h1>)}
-
-      <img alt='spotify-spin' src='/spotify-spin.gif' />
 
       {data?.body && (<h2>{data.body}</h2>)}
 
