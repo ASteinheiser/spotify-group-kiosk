@@ -8,16 +8,10 @@ const PATCHBAY_URL = `https://patchbay.pub/pubsub/${REACT_APP_PATCHBAY_PUBSUB_KE
 const App = () => {
   const { data, error } = usePatchbay(PATCHBAY_URL);
 
-  if (error) {
-    return (
-      <div>
-        <h1>Error</h1>
-      </div>
-    )
-  }
-
   return (
     <div className='wrapper'>
+      {error && <h1>{error.message}</h1>}
+
       {data?.title && (<h1>{data.title}</h1>)}
 
       <img alt='spotify-spin' src='/spotify-spin.gif' />
