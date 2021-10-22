@@ -61,3 +61,35 @@ img {
 #qr-code {
   padding-bottom: 32px;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 32px;
+
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input {
+  color: #1dd35f !important;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 2px solid #1dd35f !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom: 2px solid #1dd35f !important;
+}
+
+button {
+  margin-top: 48px;
+}
+
+label {
+  color: #1dd35f !important;
+}

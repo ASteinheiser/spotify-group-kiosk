@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Input from 'input-material-ui';
 
 const Controller = ({ apiUrl }) => {
   const [title, setTitle] = useState('');
@@ -19,29 +20,32 @@ const Controller = ({ apiUrl }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Title"
-          type="text"
-          value={title}
-          onChange={({ target }) => setTitle(target.value)}
-        />
-        <input
-          placeholder="Body"
-          type="text"
-          value={body}
-          onChange={({ target }) => setBody(target.value)}
-        />
-        <input
-          placeholder="URL"
-          type="text"
-          value={url}
-          onChange={({ target }) => setUrl(target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <h2>Update the Kiosk</h2>
+
+      <Input
+        label="Title"
+        type="text"
+        value={title}
+        onChange={setTitle}
+      />
+      <br />
+      <Input
+        label="Body"
+        type="text"
+        value={body}
+        onChange={setBody}
+      />
+      <br />
+      <Input
+        label="URL"
+        type="text"
+        value={url}
+        onChange={setUrl}
+      />
+
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
