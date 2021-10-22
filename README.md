@@ -26,7 +26,17 @@ Run the kiosk with:
 yarn start
 ```
 
-Send a message to the kiosk:
+View the kiosk at:
+```
+http://localhost:3000
+```
+
+Change the kiosk with the admin controller:
+```
+http://localhost:3000/admin
+```
+
+Or send a message to the kiosk manually:
 ```
 curl "https://patchbay.pub/pubsub/<REACT_APP_PATCHBAY_PUBSUB_KEY>" -d '{"title":"Spotify Group Session","body":"Scan the code to join!","url":"www.spotify.com/groups/some-id"}'
 ```
