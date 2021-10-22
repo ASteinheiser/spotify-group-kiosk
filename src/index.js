@@ -7,24 +7,34 @@ import Kiosk from './Kiosk';
 import Controller from './Controller';
 import './index.css';
 
+const createPatchbayUrl = token => `https://patchbay.pub/pubsub/${token}`;
+
 const Router = () => {
-  const { pathname, search } = window.location;
+  const { pathname, search, hostname, port } = window.location;
   const query = querystring.parse(search);
 
   let patchbayKey = query.token;
   if (!patchbayKey) {
-    console.log(sha256(Math.random().toString()));
+    const newToken = sha256(Math.random().toString());
+    window.history.replaceState(null, '', `http://${hostname}:${port}?token=${newToken}`)
+
+    setTimeout(() => {
+      fetch(createPatchbayUrl(newToken), {
+        method: 'POST',
+        body: JSON.stringify({
+          title: 'Setup Spotify Group Session',
+          body: 'Scan the QR code below to change this page!',
+          url: `http://${hostname}:${port}/admin?token=${newToken}`,
+        })
+      }).catch(console.error);
+    }, 10)
   }
-
-  const patchbayUrl = `https://patchbay.pub/pubsub/${patchbayKey}`;
-
-  console.log({ patchbayUrl });
 
   if (pathname === '/') {
-    return <Kiosk apiUrl={`${patchbayUrl}?persist=true`} />;
+    return <Kiosk apiUrl={`${createPatchbayUrl(patchbayKey)}?persist=true`} />;
   }
   if (pathname === '/admin') {
-    return <Controller apiUrl={patchbayUrl} />;
+    return <Controller apiUrl={createPatchbayUrl(patchbayKey)} />;
   }
   // redirect to base url if no match
   window.location.href = '/';
