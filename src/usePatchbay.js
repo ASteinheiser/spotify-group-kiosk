@@ -14,6 +14,7 @@ const usePatchbay = (url) => {
     try {
       const dataObject = JSON.parse(dataBuffer.toString());
       setData(dataObject);
+      setError(undefined);
     } catch (error) {
       handleError(error);
     }
