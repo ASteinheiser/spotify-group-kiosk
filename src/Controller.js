@@ -12,8 +12,10 @@ const Controller = ({ apiUrl }) => {
       return alert('Please fill out all fields');
     }
 
-    console.log('publishing!')
-    // publish message
+    fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify({ title, body, url })
+    }).catch(console.error);
   };
 
   return (
