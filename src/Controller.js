@@ -9,8 +9,8 @@ const Controller = ({ apiUrl }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!title || !body || !url) {
-      return alert('Please fill out all fields');
+    if (!url) {
+      return alert('Please at least supply a url to encode...');
     }
 
     fetch(apiUrl, {
