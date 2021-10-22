@@ -1,9 +1,25 @@
+import { useEffect, useState } from 'react';
 import QRCode from 'react-qr-code';
 
 import usePatchbay from './usePatchbay';
 
-const Kiosk = ({ apiUrl }) => {
+const Kiosk = ({ apiUrl, adminUrl }) => {
+  const [initialized, setInitialized] = useState(false);
   const { data, error } = usePatchbay(apiUrl);
+
+  useEffect(() => {
+    if (!initialized && !data && !error) {
+      setInitialized(true);
+      fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify({
+          title: 'Setup Spotify Group Session',
+          body: 'Scan the QR code below to change this page!',
+          url: adminUrl,
+        })
+      }).catch(console.error);
+    }
+  }, [adminUrl, apiUrl, data, error, initialized]);
 
   return (
     <div id='wrapper'>

@@ -23,7 +23,7 @@ const usePatchbay = (url) => {
 
   useEffect(() => {
     https
-      .get(url, (res) => res.on('data', handleNewMessage))
+      .get(`${url}?persist=true`, (res) => res.on('data', handleNewMessage))
       .on('error', handleError);
   }, [handleNewMessage, handleError, url]);
 

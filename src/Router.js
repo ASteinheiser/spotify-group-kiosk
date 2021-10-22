@@ -15,21 +15,15 @@ const Router = () => {
   if (!patchbayKey) {
     patchbayKey = sha256(Math.random().toString());
     window.history.replaceState(null, '', `${domain}?token=${patchbayKey}`)
-
-    setTimeout(() => {
-      fetch(createPatchbayUrl(patchbayKey), {
-        method: 'POST',
-        body: JSON.stringify({
-          title: 'Setup Spotify Group Session',
-          body: 'Scan the QR code below to change this page!',
-          url: `${domain}/admin?token=${patchbayKey}`,
-        })
-      }).catch(console.error);
-    }, 10);
   }
 
   if (pathname === '/') {
-    return <Kiosk apiUrl={`${createPatchbayUrl(patchbayKey)}?persist=true`} />;
+    return (
+      <Kiosk
+        apiUrl={createPatchbayUrl(patchbayKey)}
+        adminUrl={`${domain}/admin?token=${patchbayKey}`}
+      />
+    );
   }
   if (pathname === '/admin') {
     return <Controller apiUrl={createPatchbayUrl(patchbayKey)} />;
