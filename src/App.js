@@ -20,6 +20,8 @@ const App = () => {
     <div>
       <h1>Spotify Group Session Kiosk</h1>
 
+      <img alt='spotify-spin' src='/spotify-spin.gif' />
+
       {Boolean(data?.url) && (
         <QRCode
           value={data.url}
