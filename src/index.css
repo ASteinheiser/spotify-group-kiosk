@@ -87,7 +87,16 @@ input {
 }
 
 button {
+  color: #000000;
+  font-size: 24px;
+
   margin-top: 48px;
+  background-color: #1dd35f;
+  padding: 12px 32px;
+
+  border-radius: 8px;
+  border: none;
+  box-shadow: 1px 1px 8px #1dd35f;
 }
 
 label {
