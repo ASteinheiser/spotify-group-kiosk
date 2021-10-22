@@ -16,7 +16,8 @@ const usePatchbay = (url) => {
       setData(dataObject);
       setError(undefined);
     } catch (error) {
-      handleError(error);
+      console.error(error);
+      handleError(new Error('Failed to parse JSON string...'));
     }
   }, [handleError]);
 
