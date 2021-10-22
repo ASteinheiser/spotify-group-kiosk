@@ -32,5 +32,5 @@ http://localhost:3000/admin?token=your-token
 
 Or send a message to the kiosk manually:
 ```
-curl "https://patchbay.pub/pubsub/<REACT_APP_PATCHBAY_PUBSUB_KEY>" -d '{"title":"Spotify Group Session","body":"Scan the code to join!","url":"www.spotify.com/groups/some-id"}'
+curl "https://patchbay.pub/pubsub/<token>" -d '{"title":"Spotify Group Session","body":"Scan the code to join!","url":"www.spotify.com/groups/some-id"}'
 ```
