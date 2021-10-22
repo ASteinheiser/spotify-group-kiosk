@@ -17,13 +17,16 @@ const App = () => {
   }
 
   return (
-    <div>
-      <h1>Spotify Group Session Kiosk</h1>
+    <div className='wrapper'>
+      {data?.title && (<h1>{data.title}</h1>)}
 
       <img alt='spotify-spin' src='/spotify-spin.gif' />
 
-      {Boolean(data?.url) && (
+      {data?.body && (<h2>{data.body}</h2>)}
+
+      {data?.url && (
         <QRCode
+          id="qr-code"
           value={data.url}
           bgColor={'#000000'}
           fgColor={'#1dd35f'}

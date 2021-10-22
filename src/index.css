@@ -1,3 +1,14 @@
+html,
+body,
+#root,
+.wrapper {
+  height: 100%;
+}
+
+html {
+  background-color: #000000;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +21,28 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  color: #1dd35f;
+}
+
+h2 {
+  color: #1dd35f;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 600px;
+  height: auto;
+}
+
+#qr-code {
+  padding-bottom: 44px;
 }
