@@ -26,6 +26,7 @@ code {
 h1,
 h2 {
   color: #1dd35f;
+  text-shadow: 1px 1px 4px #1dd35f;
   max-width: 1000px;
 
   overflow: hidden;
