@@ -20,7 +20,14 @@ const App = () => {
     <div>
       <h1>Spotify Group Session Kiosk</h1>
 
-      {Boolean(data?.url) && <QRCode value={data.url} />}
+      {Boolean(data?.url) && (
+        <QRCode
+          value={data.url}
+          bgColor={'#000000'}
+          fgColor={'#1dd35f'}
+          size={256}
+        />
+      )}
     </div>
   );
 }
