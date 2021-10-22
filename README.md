@@ -9,15 +9,9 @@ Realistically, the only thing that makes this specific to Spotify is the design 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Setup
-Before you get started, make sure you have a `.env`:
-```
-REACT_APP_PATCHBAY_PUBSUB_KEY=<some_random_string>
-```
-
-Then, you can install the dependencies and source `.env`:
+Install the dependencies:
 ```
 yarn
-source .env
 ```
 
 # Usage
@@ -33,7 +27,7 @@ http://localhost:3000
 
 Change the kiosk with the admin controller:
 ```
-http://localhost:3000/admin
+http://localhost:3000/admin?token=your-token
 ```
 
 Or send a message to the kiosk manually:
