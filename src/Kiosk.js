@@ -3,9 +3,15 @@ import QRCode from 'react-qr-code';
 
 import usePatchbay from './usePatchbay';
 
+const DEFAULT_COLOR = '#1dd35f';
+const DEFAULT_BG_COLOR = '#000000';
+
 const Kiosk = ({ apiUrl, adminUrl }) => {
   const [initialized, setInitialized] = useState(false);
   const { data, error } = usePatchbay(apiUrl);
+
+  const color = data?.color || DEFAULT_COLOR;
+  const bgColor = data?.bgColor || DEFAULT_BG_COLOR;
 
   useEffect(() => {
     if (!initialized && !data && !error) {
@@ -14,7 +20,7 @@ const Kiosk = ({ apiUrl, adminUrl }) => {
         method: 'POST',
         body: JSON.stringify({
           title: 'Setup Spotify Group Session',
-          body: 'Scan the QR code below to change this page!',
+          subtitle: 'Scan the QR code below to change this page!',
           url: adminUrl,
         })
       }).catch(console.error);
@@ -25,18 +31,18 @@ const Kiosk = ({ apiUrl, adminUrl }) => {
     <div id='wrapper'>
       <img alt='spotify-spin' src='/spotify-spin.gif' />
 
-      {error && <h1>{error.message}</h1>}
+      {error && <h1 style={{ color }}>{error.message}</h1>}
 
-      {data?.title && (<h1>{data.title}</h1>)}
+      {data?.title && <h1 style={{ color }}>{data.title}</h1>}
 
-      {data?.body && (<h2>{data.body}</h2>)}
+      {data?.subtitle && <h2 style={{ color }}>{data.subtitle}</h2>}
 
       {data?.url && (
         <QRCode
           id="qr-code"
           value={data.url}
-          bgColor={'#000000'}
-          fgColor={'#1dd35f'}
+          bgColor={bgColor}
+          fgColor={color}
           size={256}
         />
       )}

@@ -3,8 +3,10 @@ import Input from 'input-material-ui';
 
 const Controller = ({ apiUrl }) => {
   const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [subtitle, setSubtitle] = useState('');
   const [url, setUrl] = useState('');
+  const [color, setColor] = useState('');
+  const [bgColor, setBgColor] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +17,7 @@ const Controller = ({ apiUrl }) => {
 
     fetch(apiUrl, {
       method: 'POST',
-      body: JSON.stringify({ title, body, url })
+      body: JSON.stringify({ title, subtitle, url, color, bgColor })
     }).catch(console.error);
   };
 
@@ -31,10 +33,10 @@ const Controller = ({ apiUrl }) => {
       />
       <br />
       <Input
-        label="Body"
+        label="Subtitle"
         type="text"
-        value={body}
-        onChange={setBody}
+        value={subtitle}
+        onChange={setSubtitle}
       />
       <br />
       <Input
@@ -42,6 +44,20 @@ const Controller = ({ apiUrl }) => {
         type="text"
         value={url}
         onChange={setUrl}
+      />
+      <br />
+      <Input
+        label="Text Color"
+        type="text"
+        value={color}
+        onChange={setColor}
+      />
+      <br />
+      <Input
+        label="Background Color"
+        type="text"
+        value={bgColor}
+        onChange={setBgColor}
       />
 
       <button type="submit">Submit</button>

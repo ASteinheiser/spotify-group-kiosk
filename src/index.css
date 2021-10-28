@@ -86,6 +86,10 @@ input {
   border-bottom: 2px solid #1dd35f !important;
 }
 
+.MuiSvgIcon-root {
+  color: #888888;
+}
+
 button {
   color: #000000;
   font-size: 24px;
@@ -97,6 +101,8 @@ button {
   border-radius: 8px;
   border: none;
   box-shadow: 1px 1px 8px #1dd35f;
+
+  cursor: pointer;
 }
 
 label {
