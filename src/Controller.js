@@ -5,6 +5,7 @@ const Controller = ({ apiUrl }) => {
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [url, setUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   const [color, setColor] = useState('');
   const [bgColor, setBgColor] = useState('');
 
@@ -17,7 +18,7 @@ const Controller = ({ apiUrl }) => {
 
     fetch(apiUrl, {
       method: 'POST',
-      body: JSON.stringify({ title, subtitle, url, color, bgColor })
+      body: JSON.stringify({ title, subtitle, url, imageUrl, color, bgColor })
     }).catch(console.error);
   };
 
@@ -40,10 +41,17 @@ const Controller = ({ apiUrl }) => {
       />
       <br />
       <Input
-        label="URL"
+        label="URL (QR code)"
         type="text"
         value={url}
         onChange={setUrl}
+      />
+      <br />
+      <Input
+        label="Image URL"
+        type="text"
+        value={imageUrl}
+        onChange={setImageUrl}
       />
       <br />
       <Input
