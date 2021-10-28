@@ -5,6 +5,7 @@ import usePatchbay from './usePatchbay';
 
 const DEFAULT_COLOR = '#1dd35f';
 const DEFAULT_BG_COLOR = '#000000';
+const DEFAULT_IMAGE = '/spotify-spin.gif';
 
 const Kiosk = ({ apiUrl, adminUrl }) => {
   const [initialized, setInitialized] = useState(false);
@@ -12,6 +13,12 @@ const Kiosk = ({ apiUrl, adminUrl }) => {
 
   const color = data?.color || DEFAULT_COLOR;
   const bgColor = data?.bgColor || DEFAULT_BG_COLOR;
+  const image = data?.imageUrl || DEFAULT_IMAGE;
+
+  const textStyles = {
+    color,
+    textShadow: `1px 1px 4px ${color}`,
+  };
 
   useEffect(() => {
     if (!initialized && !data && !error) {
@@ -28,14 +35,14 @@ const Kiosk = ({ apiUrl, adminUrl }) => {
   }, [adminUrl, apiUrl, data, error, initialized]);
 
   return (
-    <div id='wrapper'>
-      <img alt='spotify-spin' src='/spotify-spin.gif' />
+    <div id='wrapper' style={{ background: bgColor }}>
+      <img alt='spotify-spin' src={image} />
 
-      {error && <h1 style={{ color }}>{error.message}</h1>}
+      {error && <h1 style={textStyles}>{error.message}</h1>}
 
-      {data?.title && <h1 style={{ color }}>{data.title}</h1>}
+      {data?.title && <h1 style={textStyles}>{data.title}</h1>}
 
-      {data?.subtitle && <h2 style={{ color }}>{data.subtitle}</h2>}
+      {data?.subtitle && <h2 style={textStyles}>{data.subtitle}</h2>}
 
       {data?.url && (
         <QRCode
