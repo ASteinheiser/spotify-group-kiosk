@@ -54,8 +54,8 @@ h2 {
 }
 
 img {
-  width: 600px;
-  height: auto;
+  width: auto;
+  max-height: 300px;
 }
 
 #qr-code {
