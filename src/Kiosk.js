@@ -5,7 +5,6 @@ import usePatchbay from './usePatchbay';
 
 const DEFAULT_COLOR = '#1dd35f';
 const DEFAULT_BG_COLOR = '#000000';
-const DEFAULT_IMAGE = '/spotify-spin.gif';
 
 const Kiosk = ({ apiUrl, adminUrl }) => {
   const [initialized, setInitialized] = useState(false);
@@ -13,7 +12,6 @@ const Kiosk = ({ apiUrl, adminUrl }) => {
 
   const color = data?.color || DEFAULT_COLOR;
   const bgColor = data?.bgColor || DEFAULT_BG_COLOR;
-  const image = data?.imageUrl || DEFAULT_IMAGE;
 
   const textStyles = {
     color,
@@ -29,6 +27,7 @@ const Kiosk = ({ apiUrl, adminUrl }) => {
           title: 'Setup Spotify Group Session',
           subtitle: 'Scan the QR code below to change this page!',
           url: adminUrl,
+          imageUrl: '/spotify-spin.gif',
         })
       }).catch(console.error);
     }
@@ -36,7 +35,7 @@ const Kiosk = ({ apiUrl, adminUrl }) => {
 
   return (
     <div id='wrapper' style={{ background: bgColor }}>
-      <img alt='spotify-spin' src={image} />
+      {data?.imageUrl && <img alt='spotify-spin' src={data.imageUrl} />}
 
       {error && <h1 style={textStyles}>{error.message}</h1>}
 

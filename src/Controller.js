@@ -6,7 +6,7 @@ const Controller = ({ apiUrl }) => {
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [url, setUrl] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('/spotify-spin.gif');
   const [color, setColor] = useState('#1dd35f');
   const [bgColor, setBgColor] = useState('#000000');
 
@@ -44,7 +44,7 @@ const Controller = ({ apiUrl }) => {
       />
       <br />
       <Input
-        label="URL (QR code)"
+        label="URL (QR code)*"
         type="text"
         value={url}
         onChange={setUrl}
