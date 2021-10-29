@@ -24,7 +24,9 @@ const Controller = ({ apiUrl }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Update the Kiosk</h2>
+      <h2 style={{ marginBottom: 16 }}>Update the Kiosk</h2>
+
+      <h3>Data Options</h3>
 
       <Input
         label="Title"
@@ -47,6 +49,9 @@ const Controller = ({ apiUrl }) => {
         onChange={setUrl}
       />
       <br />
+
+      <h3 style={{ marginTop: 32 }}>Theme Options</h3>
+
       <Input
         label="Image URL"
         type="text"
