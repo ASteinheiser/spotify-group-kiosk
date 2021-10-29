@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Input from 'input-material-ui';
+import { HexColorPicker } from 'react-colorful';
 
 const Controller = ({ apiUrl }) => {
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('');
   const [url, setUrl] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const [color, setColor] = useState('');
-  const [bgColor, setBgColor] = useState('');
+  const [color, setColor] = useState('#1dd35f');
+  const [bgColor, setBgColor] = useState('#000000');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,17 +60,17 @@ const Controller = ({ apiUrl }) => {
         onChange={setImageUrl}
       />
       <br />
-      <Input
-        label="Text Color"
-        type="text"
-        value={color}
+
+      <h4>Text Color</h4>
+      <HexColorPicker
+        color={color}
         onChange={setColor}
       />
       <br />
-      <Input
-        label="Background Color"
-        type="text"
-        value={bgColor}
+
+      <h4>Background Color</h4>
+      <HexColorPicker
+        color={bgColor}
         onChange={setBgColor}
       />
 

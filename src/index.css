@@ -25,7 +25,8 @@ code {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   color: #1dd35f;
   text-shadow: 1px 1px 4px #1dd35f;
   max-width: 1000px;
@@ -49,6 +50,11 @@ h2 {
 
 h3 {
   font-size: 20px;
+  -webkit-line-clamp: 1;
+}
+
+h4 {
+  font-size: 16px;
   -webkit-line-clamp: 1;
 }
 
@@ -103,6 +109,7 @@ button {
   margin-top: 48px;
   background-color: #1dd35f;
   padding: 12px 32px;
+  margin-bottom: 24px;
 
   border-radius: 8px;
   border: none;
